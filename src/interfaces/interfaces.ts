@@ -29,15 +29,20 @@ export interface PostsState {
     currentPage: number;
     postsPerPage: number;
   }
-  recentPostsIds: string[];
+  recentPostsIds: number[];
 }
 
 export interface PostProps {
+  id: number;
   image: string;
   author: string;
   title: string;
   paragraph: string;
   categories: string[];
+  style?: string;
+  pagination? : boolean;
+  grid? : boolean;
+  imgStyle? : string;
 }
 
 export interface PaginationProps {

@@ -1,4 +1,3 @@
-import React from "react";
 
 const Footer = () => {
   const copyright = "© 2023";
@@ -10,7 +9,7 @@ const Footer = () => {
           {copyright}
         </p>
         {links.map((link) => (
-          <p className="hover:text-blue-900 dark:hover:text-blue-200 cursor-pointer">
+          <p key={link} className="hover:text-blue-900 dark:hover:text-blue-200 cursor-pointer">
             {link}
           </p>
         ))}

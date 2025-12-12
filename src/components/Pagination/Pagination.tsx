@@ -36,6 +36,7 @@ const Pagination = () => {
       <div className="flex gap-1">
         {pages.map((page: number) => (
           <span
+          key={page}
             onClick={() => dispatch(clickPage(page))}
             className={`py-2.5 px-4 cursor-pointer rounded-lg hover:text-violet-600 hover:shadow-md  ${
               currentPage === page

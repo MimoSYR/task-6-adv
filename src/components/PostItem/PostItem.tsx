@@ -1,6 +1,6 @@
 import { MdArrowOutward } from "react-icons/md";
 import type { PostProps } from "../../interfaces/interfaces";
-
+import { useNavigate } from "react-router";
 const createdDate = "1 Jan 2023";
 
 interface CategoryClass {
@@ -76,12 +76,19 @@ const categoriesClasses: CategoryClass[] = [
 ];
 
 const PostItem = ({
+  id,
   image,
   author,
   title,
   paragraph,
   categories,
+  style,
+  pagination,
+  grid,
+  imgStyle,
 }: PostProps) => {
+  const navigate = useNavigate();
+
   const getCategoryColor = (categoryName: string) => {
     const foundCategory = categoriesClasses.find(
       (item) => item.name === categoryName
@@ -91,11 +98,21 @@ const PostItem = ({
       : "bg-gray-100 text-gray-800";
   };
 
+  const handleItemClick = (id: number) => {
+    navigate(`/post/${id}`);
+  };
+
   return (
-    <div className="w-fit rounded-sm p-2 group flex flex-col gap-8 cursor-pointer  hover:shadow-lg transition-all duration-300">
+    <div
+      onClick={() => handleItemClick(id)}
+      className={`${style ? style : " flex flex-col "} ${
+        pagination && " w-fit "
+      }  rounded-sm hover:scale-[0.98] pb-4 group gap-8 cursor-pointer  hover:shadow-lg transition-all duration-300`}>
       {/* card image */}
       <img
-        className="h-[240px] object-cover group-hover:opacity-80 bg-black mx-auto transition-all duration-300"
+        className={`${pagination && "h-60 "} ${
+          grid && imgStyle ? imgStyle : ""
+        } object-cover group-hover:opacity-80   transition-all duration-300`}
         src={image}
         alt=""
       />
@@ -107,7 +124,10 @@ const PostItem = ({
           </h4>
           <div className="flex justify-between">
             <h3 className="text-2xl font-semibold line-clamp-2">{title}</h3>
-            <MdArrowOutward className="ms-4" size={"38px"} />
+            <MdArrowOutward
+              className="ms-4 group-hover:text-violet-700"
+              size={"38px"}
+            />
           </div>
           <p className="line-clamp-2">{paragraph}</p>
         </div>
@@ -116,7 +136,6 @@ const PostItem = ({
           <div className="flex flex-wrap gap-2">
             {categories.map((category: string) => {
               const categoryClass = getCategoryColor(category);
-              console.log(categoryClass);
 
               return (
                 <p

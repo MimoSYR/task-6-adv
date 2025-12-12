@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import HomePage from "./pages/HomePage";
 import Root from "./layout/Root";
-import BlogPage from "./pages/BlogPage";
 import Newsletter from "./pages/Newsletter";
 import { Provider } from "react-redux";
 import { store } from "./redux/store/store";
+import PostPage from "./pages/PostPage";
 
 const routes = createBrowserRouter([
   {
@@ -16,8 +16,8 @@ const routes = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "blog/:id",
-        element: <BlogPage />,
+        path: "post/:id",
+        element: <PostPage/>,
       },
       {
         path: "newsletter",

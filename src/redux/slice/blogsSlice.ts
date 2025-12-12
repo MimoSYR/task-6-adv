@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { PostsState } from "../../interfaces/interfaces";
+import type { Post, PostsState } from "../../interfaces/interfaces";
 
-const postsData = [
+const postsData : Post[] = [
   {
     id: 1,
     title: "Grid system for better Design User Interface",
@@ -684,6 +684,8 @@ const postsData = [
   }
 ];
 
+const recentPostsIdsInit : number[] = [7, 6, 5, 4, 3, 2, 1]
+
 const initialState : PostsState = {
     allPosts: postsData,
     pagination: {
@@ -692,7 +694,7 @@ const initialState : PostsState = {
     },
 
     // recent opened posts
-    recentPostsIds:[]
+    recentPostsIds: recentPostsIdsInit,
 }
 
 const postsSlice = createSlice({
@@ -714,12 +716,25 @@ const postsSlice = createSlice({
         clickPage: (state, action) => {
             state.pagination.currentPage = action.payload; //pass the current page number to the reducer state
         },
-        // change posts per page
-        // changeShownPosts: (state) => {
-        //     // state.shownBlogs = 
-        // }
+
+        //////// recent post actions /////////
+
+        // add new post to recent posts array
+        addRecentPostId: (state, action) => {
+          const postId = action.payload;
+
+          // filter existing id, and add the new id to front
+          state.recentPostsIds = state.recentPostsIds.filter((id) => id !== postId);
+          state.recentPostsIds.unshift(postId);
+
+          // limit the array
+          if(state.recentPostsIds.length > 5){
+            state.recentPostsIds.pop();
+          }
+        },
+
     },
 })
 
-export const { nextPage, prevPage, clickPage } = postsSlice.actions
+export const { nextPage, prevPage, clickPage, addRecentPostId } = postsSlice.actions
 export default postsSlice.reducer
