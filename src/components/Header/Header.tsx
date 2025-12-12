@@ -70,7 +70,7 @@ const Header = ({ logo, links, theme, toggleTheme }: HeaderProps) => {
               }`}>
               {/* logo */}
               <div className="font-semibold text-xl mb-[54px]">
-                <Link to={"/"}>{logo}</Link>
+                <Link onClick={() => setIsMenuOpen(false)} to={"/"}>{logo}</Link>
               </div>
 
               {/* links */}
