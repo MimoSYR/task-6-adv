@@ -26,15 +26,15 @@ const HomePage = () => {
   const recentPost4 = allPosts.find((p) => p.id === recentPostsIds[3]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col px-8 lg:px-28">
       {/* LOGO */}
-      <div className="mb-[60px] border-t border-b border-[#00000057] text-center">
+      <section className="mb-[60px] border-t border-b border-[#00000057] text-center">
         <h1 className="md:truncate text-7xl md:text-[130px] lg:text-[150px] xl:text-[200px] 2xl:text-[243px] font-bold uppercase text-clip text-center">
           the blog
         </h1>
-      </div>
+      </section>
       {/* RECENT BLOG POST */}
-      <div className="mb-[60px]">
+      <section className="mb-[60px]">
         <h2 className="capitalize text-2xl font-semibold mb-8">
           recent blog posts
         </h2>
@@ -99,9 +99,9 @@ const HomePage = () => {
             )}
           </div>
         </div>
-      </div>
+      </section>
       {/* ALL BLOG POSTS */}
-      <div>
+      <section>
         <h2 className="capitalize text-2xl font-semibold mb-8">
           all blog posts
         </h2>
@@ -124,7 +124,7 @@ const HomePage = () => {
           {/* pagination */}
           <Pagination />
         </div>
-      </div>
+      </section>
     </div>
   );
 };

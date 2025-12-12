@@ -1,10 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import HomePage from "./pages/HomePage";
 import Root from "./layout/Root";
-import Newsletter from "./pages/Newsletter";
 import { Provider } from "react-redux";
 import { store } from "./redux/store/store";
 import PostPage from "./pages/PostPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import NewsletterPage from "./pages/NewsletterPage";
 
 const routes = createBrowserRouter([
   {
@@ -21,7 +22,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "newsletter",
-        element: <Newsletter />,
+        element: <NewsletterPage />,
+      },
+      {
+        path: "*",
+        element: <NotFoundPage />
       },
     ],
   },

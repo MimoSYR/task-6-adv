@@ -30,7 +30,7 @@ const Header = ({ logo, links, theme, toggleTheme }: HeaderProps) => {
             <div className="me-3.5 flex gap-3.5">
               {links.map((link) => (
                 <NavLink
-                  to={`/`}
+                  to={`/${link}`}
                   key={link}
                   onClick={() => handleLinkClicked(link)}
                   className={`p-2 text-xl hover:text-shadow-md text-shadow-amber-200 dark:text-shadow-amber-800 ${
@@ -78,7 +78,7 @@ const Header = ({ logo, links, theme, toggleTheme }: HeaderProps) => {
                 {links.map((link) => (
                   <NavLink
                     onClick={() => handleLinkClicked(link)}
-                    to={"/"}
+                    to={`/${link}`}
                     key={link}
                     className={`p-2 ${
                       active === link ? "text-blue-900 dark:text-blue-300" : ""

@@ -36,7 +36,7 @@ const Pagination = () => {
       <div className="flex gap-1">
         {pages.map((page: number) => (
           <span
-          key={page}
+            key={page}
             onClick={() => dispatch(clickPage(page))}
             className={`py-2.5 px-4 cursor-pointer rounded-lg hover:text-violet-600 hover:shadow-md  ${
               currentPage === page
@@ -51,14 +51,14 @@ const Pagination = () => {
       <button
         disabled={currentPage === 1 ? true : false}
         onClick={() => handlePrev()}
-        className="disabled:cursor-not-allowed disabled:text-gray-400 absolute left-0 top-0 bottom-0 flex cursor-pointer gap-2 items-center hover:text-violet-600">
+        className="disabled:cursor-not-allowed disabled:text-gray-400 dark:disabled:text-gray-700 absolute left-0 top-0 bottom-0 flex cursor-pointer gap-2 items-center hover:text-violet-600">
         <GrLinkPrevious />
         <p>Previous</p>
       </button>
       <button
         disabled={currentPage === pages.length ? true : false}
         onClick={() => handleNext()}
-        className="disabled:cursor-not-allowed disabled:text-gray-400 absolute right-0 top-0 bottom-0 flex cursor-pointer gap-2 items-center hover:text-violet-600">
+        className="disabled:cursor-not-allowed disabled:text-gray-400 dark:disabled:text-gray-700 absolute right-0 top-0 bottom-0 flex cursor-pointer gap-2 items-center hover:text-violet-600">
         <p>Next</p>
         <GrLinkNext />
       </button>

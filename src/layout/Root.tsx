@@ -17,7 +17,7 @@ const Root = () => {
   };
 
   return (
-    <div className="px-8 lg:px-28 bg-white dark:bg-[#090D1F] text-[#1A1A1A] dark:text-white">
+    <div className=" bg-white dark:bg-[#090D1F] text-[#1A1A1A] dark:text-white">
       <Header
         logo={logo}
         links={links}
