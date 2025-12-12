@@ -1,6 +1,7 @@
 import { MdArrowOutward } from "react-icons/md";
 import type { PostProps } from "../../interfaces/interfaces";
 import { useNavigate } from "react-router";
+
 const createdDate = "1 Jan 2023";
 
 interface CategoryClass {
