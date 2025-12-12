@@ -15,11 +15,13 @@ const Header = ({ logo, links, theme, toggleTheme }: HeaderProps) => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 px-28 pt-[30px] ">
+    <header className="z-10 fixed top-0 left-0 right-0 px-28 pt-[30px] bg-white dark:bg-[#090D1F]">
       <div className="flex items-center justify-between py-2.5">
         {/* logo */}
         <div className="font-semibold text-xl ">
-          <Link to={"/"}>{logo}</Link>
+          <Link className="outline-none focus:outline-none" to={"/"}>
+            {logo}
+          </Link>
         </div>
         {/* Navbar */}
         <nav>

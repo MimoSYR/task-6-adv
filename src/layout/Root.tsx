@@ -17,7 +17,7 @@ const Root = () => {
   };
 
   return (
-    <div className="px-28 bg-white dark:bg-[#090D1F] text-[#1A1A1A] dark:text-white">
+    <div className="px-8 lg:px-28 bg-white dark:bg-[#090D1F] text-[#1A1A1A] dark:text-white">
       <Header
         logo={logo}
         links={links}
@@ -26,7 +26,7 @@ const Root = () => {
       />
       <div className="h-16 mb-[50px]"></div>
 
-      <div className="h-100 mb-96"></div>
+      {/* <div className="h-100 mb-96"></div> */}
 
       {/* pages */}
       <main>
